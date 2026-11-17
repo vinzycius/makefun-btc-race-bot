@@ -25,18 +25,18 @@ SYMBOL = "CBBTC"
 # ---- tunable parameters ----
 W_REF = 360        # reference window (bars) for the mean
 W_FAST = 60        # fast trend window (bars)
-BUY1 = 0.008       # normal-regime first dip level vs reference: buy 50% of cash
-BUY2 = 0.008       # normal-regime second dip level: buy the rest
+BUY1 = 0.005       # normal-regime first dip level vs reference: buy 50% of cash
+BUY2 = 0.009       # normal-regime second dip level: buy the rest
 SELL_REF = 0.003   # sell when close >= reference * (1 + SELL_REF)
 TP = 0.008         # take profit vs average entry price
 SL = 0.010         # stop loss vs average entry price
 BREAK = 0.020      # emergency exit when close <= reference * (1 - BREAK)
 COOLDOWN = 15      # bars to wait after a normal sell before buying again
-TREND_GUARD = -0.015  # skip buys when the 60-bar return is below this
+TREND_GUARD = -0.03   # skip buys when the 60-bar return is below this
 REGIME_DIP = 0.005    # downtrend if close < ref*(1-REGIME_DIP) and ref falling
 REGIME_ON = True
 EQUITY_STOP = 0.02    # halt new buys once equity falls this far below $1000
-DOWN_BUY = 0.02
+DOWN_BUY = 0.012
 DOWN_SIZE = 0.15
 DOWN_TP = 0.005       # downtrend take profit
 DOWN_SL = 0.005       # downtrend stop loss

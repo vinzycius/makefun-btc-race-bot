@@ -31,13 +31,13 @@ Range-bound mean reversion with a regime filter. The dev window is choppy
 baselines whipsaw badly on it (ema-cross: −$106).
 
 - **Reference:** SMA of the last 360 closes (6h).
-- **Normal regime:** buy 50% of cash when the close dips ≥0.8% below the
-  reference, top up to 100% if it dips further; sell everything on
+- **Normal regime:** buy 50% of cash when the close dips ≥0.5% below the
+  reference, top up to 100% if it dips to ≥0.9%; sell everything on
   reversion to reference +0.3%, take-profit +0.8% vs entry, stop-loss
   −1.0% vs entry, or breakdown −2.0% below reference. 15-bar cooldown
-  after a sell; no buys when the 60-bar return is below −1.5%.
+  after a sell; no buys when the 60-bar return is below −3.0%.
 - **Downtrend regime** (close >0.5% below a *falling* reference): only
-  small bounce trades — 15% of cash on a ≥2.0% dip, TP/SL ±0.5%.
+  small bounce trades — 15% of cash on a ≥1.2% dip, TP/SL ±0.5%.
 - **Safety nets:** 60-bar no-buy lockout after a stop-loss exit; an
   equity stop halts new buys if equity falls 2% below $1,000.
 - Deterministic: no clock, no randomness, no environment reads; only the
@@ -54,15 +54,18 @@ exactly (momentum: **+$2.45**).
 
 | Window | BTC day return | Net PnL | Trades | Max DD |
 |---|---|---|---|---|
-| **dev (kit)** | +0.49% | **+$6.43** | 3 | 0.66% |
-| 2026-11-12 (Coinbase) | −3.45% | −$0.32 | 2 | 0.06% |
-| 2026-11-13 (Coinbase) | −4.27% | +$7.35 | 8 | 1.11% |
-| 2026-11-14 (Coinbase) | −6.25% | −$2.60 | 14 | 0.26% |
-| 2026-11-15 (Coinbase) | +1.92% | −$5.93 | 6 | 1.39% |
-| 2026-11-16 (Coinbase) | −0.74% | +$6.86 | 3 | 0.56% |
+| **dev (kit)** | +0.49% | **+$14.07** | 8 | 0.72% |
+| 2026-11-10 (Coinbase) | −2.04% | −$0.48 | 4 | 0.18% |
+| 2026-11-11 (Coinbase) | +0.32% | −$0.79 | 2 | 0.59% |
+| 2026-11-12 (Coinbase) | −3.45% | +$0.49 | 6 | 0.18% |
+| 2026-11-13 (Coinbase) | −4.27% | +$7.96 | 10 | 1.12% |
+| 2026-11-14 (Coinbase) | −6.25% | −$5.03 | 15 | 0.57% |
+| 2026-11-15 (Coinbase) | +1.92% | −$4.92 | 6 | 1.53% |
+| 2026-11-16 (Coinbase) | −0.74% | +$10.18 | 5 | 0.56% |
+| 2026-11-17 (Coinbase, partial) | −0.95% | −$1.70 | 1 | 0.43% |
 
-Mean across the 6 windows: **+$1.96/day**, worst **−$5.93**, worst max
-drawdown **1.39%** (guardrail is 25%). Dev gate (net PnL > $0 on the dev
+Mean across the 9 windows: **+$2.20/day**, worst **−$5.03**, worst max
+drawdown **1.53%** (guardrail is 25%). Dev gate (net PnL > $0 on the dev
 window) passes. Out-of-sample windows use Coinbase BTC-USD 1m candles as
 a proxy for cbBTC pool prices, with a fixed typical pool depth — indicative,
 not exact.
