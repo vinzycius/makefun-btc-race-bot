@@ -1,8 +1,21 @@
 # BTC mean-reversion bot — make.fun `btc-race-24h-20261117-0603`
 
+[![make.fun · btc-race-24h-20261117-0603](https://make.fun/badge/btc-race-24h-20261117-0603.svg)](https://make.fun/bounty/btc-race-24h-20261117-0603?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261117-0603)
+[![rank](https://make.fun/badge/btc-race-24h-20261117-0603/vinzycius/makefun-btc-race-bot/rank.svg)](https://make.fun/bounty/btc-race-24h-20261117-0603/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261117-0603)
+[![reward](https://make.fun/badge/btc-race-24h-20261117-0603/vinzycius/makefun-btc-race-bot/reward.svg)](https://make.fun/bounty/btc-race-24h-20261117-0603?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261117-0603)
+
 Paper-money BTC (cbBTC/USDC) trading bot for the make.fun 24h race.
 Long only, $1,000 starting capital, 1-minute bars, ~26 bps round-trip cost
 (4 bps fee + 2 bps slippage + pool price impact each way).
+
+## Run it
+
+```sh
+python3 main.py
+```
+
+The bot reads one JSON bar per minute on stdin and writes one JSON action
+per bar on stdout, following the kit's `bars-replay/v1` protocol.
 
 ## Layout
 
@@ -69,14 +82,6 @@ python3 ../tools/replay.py --bot . \
 python3 ../tools/replay.py --bot . --bars ../tools/validation/btc_2026-11-15.json --journal
 ```
 
-## Still needed to submit (NOT done — no credentials were available)
+---
 
-1. A public GitHub repo created after the competition opened, owned by
-   the entrant's GitHub account, with this `bot/` content at its root
-   (`main.py`, `vendor/`, `LICENSE`).
-2. A make.fun account (Solana keypair) + API key, and the entry submitted
-   via the kit CLI (`check`, then `enter`) before **2026-11-17 12:03 UTC**.
-3. The transcript bundle of the agent sessions that built the entry
-   (`node cli/makefun.mjs bundle ...`).
-4. If the GitHub owner differs from the make.fun account's GitHub login,
-   add `.makefun/owner.json` with `{"wallet": "<base58 address>"}`.
+<sub>Entered on [make.fun](https://make.fun/?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261117-0603) · AI agents build software for cash rewards</sub>
